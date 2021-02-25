@@ -8,10 +8,15 @@ import javax.swing.WindowConstants;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+/**Clase Apuesta que usa una extensión de JFrame
+ * 
+ * @author Jose Antonio Fornell Márquez
+ */
 public class Apuesta extends javax.swing.JFrame {
 
-   
+   /**
+    * Metodo de la clase principal donde recoge la declaración de otros metodos
+    */
     public Apuesta() 
     {
         initComponents();
@@ -120,7 +125,12 @@ public class Apuesta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metodo donde necesita que se le pase el parametro evt que crea la 
+     * crea un nuevo objeto de la clase crearPartido y de los parametros que 
+     * se van a mostrar en pantalla y sus caracteristicas
+     * @param evt necesita que le pasemos el parametro del evento
+     */
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
         crearPartido agregarpartido = new crearPartido(this);
         agregarpartido.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -129,23 +139,39 @@ public class Apuesta extends javax.swing.JFrame {
         agregarpartido.setTitle("Agregar nuevo partido");
         agregarpartido.setVisible(Boolean.TRUE);
     }//GEN-LAST:event_bNuevoActionPerformed
-
+    /**
+     * Metodo para eliminar un partido creado previamete
+     * @param evt necesita que le pasemos el parametro del evento
+     */
     private void bEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarActionPerformed
         borraPartido(listaQuiniela.getSelectedIndex());
     }//GEN-LAST:event_bEliminarActionPerformed
-
+    /**
+     * Metodo para crear el modelo de que va a mostrar en pantalla
+     * @param evt necesita que le pasemos el parametro del evento
+     */
     private void bResetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bResetearActionPerformed
         DefaultListModel modelovacio = new DefaultListModel();
         this.listaQuiniela.setModel(modelovacio);
         this.listaResultados.setModel(modelovacio);
     }//GEN-LAST:event_bResetearActionPerformed
 
-   
+    /**
+     * Metodo donde se le pasan 2 números enteros 
+     * y realiza la operación matematica aleatoria con ellos
+     * @param n1 número 1
+     * @param n2 número 2
+     * @return <code>(int)Math.floor((Math.random()*(n2-n1+1) + n1))</code>
+     */
     public int cualquiera(int n1, int n2)
     {
         return (int)Math.floor((Math.random()*(n2-n1+1) + n1));
     }
-    
+    /**
+     * Metodo donde comprueba si los datos metidos en el metodo 
+     * cualquiera y según le devuelva ocurre una cosa u otra
+     * @param evt necesita que le pasemos el parametro del evento
+     */
     private void bRealizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizarActionPerformed
         DefaultListModel modeloquinielaresuelta = new DefaultListModel();
 
@@ -172,7 +198,10 @@ public class Apuesta extends javax.swing.JFrame {
         this.listaResultados.setModel(modeloquinielaresuelta);
     }//GEN-LAST:event_bRealizarActionPerformed
 
-    
+    /**
+     * Metodo para crear un nuevo partido
+     * @param partido parametro que espera un dato de tipo String
+     */
     public void partidoNuevo(String partido)
     {
         DefaultListModel modelonuevo = new DefaultListModel();
@@ -186,7 +215,11 @@ public class Apuesta extends javax.swing.JFrame {
         this.listaQuiniela.setModel(modelonuevo);
     }
     
-  
+    /**
+     * Metodo para borrar un partido necesita que le pasemos el numero del
+     * partido que ha de borrar
+     * @param indice espera un parametro de tipo Int
+     */
     public void borraPartido(int indice)
     {
         DefaultListModel modelonuevoquiniela = new DefaultListModel();
@@ -212,7 +245,10 @@ public class Apuesta extends javax.swing.JFrame {
         this.listaResultados.setModel(modelonuevoresultados);
     }
     
-   
+    /**
+    *Metodo main donde se recogen las apuestas.
+    *@param args son un arrays de tipo strings
+    */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
