@@ -2,20 +2,31 @@
 import java.awt.event.KeyEvent;
 
 
-
+/**
+ * Clase crearPartido que usa una extensión de JFrame
+ * @author 1DAW09
+ */
 public class crearPartido extends javax.swing.JFrame
 {
    
-    
+    /**
+     * Metodo de la clase Apuesta
+     *
+     */
     private Apuesta v;
     
-   
+    /**
+     * Metodo para crear partido que inicia otro metodo
+     */
     public crearPartido() 
     {
         initComponents();
     }
 
-   
+    /**
+     * Metodo constructor de la clase crearPartido
+     * @param ventana espera el parametro del metodo Apuesta
+     */
     public crearPartido(Apuesta ventana) 
     {
         initComponents();
@@ -69,18 +80,27 @@ public class crearPartido extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metodo para añadir un nuevo partido
+     * @param p espera un parametro del tipo String
+     */
     public void añadePartido(String p)
     {
         v.partidoNuevo(p);
         tPartido.setText("");
         tPartido.requestFocus();
     }
-    
+    /**
+     * Metodo para agregar un partido
+     * @param evt necesita que le pasemos el parametro del evento
+     */
     private void bAgregarPartidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPartidoActionPerformed
         añadePartido(tPartido.getText());
     }//GEN-LAST:event_bAgregarPartidoActionPerformed
-
+    /**
+     * Metodo que recoge la tecla que pulsemos
+     * @param evt necesita que le pasemos el parametro del evento
+     */
     private void tPartidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tPartidoKeyPressed
         if( evt.getKeyCode() == KeyEvent.VK_ENTER )
         {
@@ -88,7 +108,10 @@ public class crearPartido extends javax.swing.JFrame
         }
     }//GEN-LAST:event_tPartidoKeyPressed
 
-    
+    /**
+    *Metodo main donde se recogen los partidos creados.
+    *@param args son un arrays de tipo strings
+    */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
